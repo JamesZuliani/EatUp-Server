@@ -1,20 +1,23 @@
 require("dotenv").config();
-const knexConfig = require("./knexfile");
-const knex = require("knex")(knexConfig);
+const { PORT } = process.env;
 
 const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const { PORT } = process.env;
 
 app.use(cors());
 app.use(express.json());
 
-const savedMealsRoute = require("./routes/savedMeals.js");
-app.use("/savedMeals", savedMealsRoute);
+const savedMealsRoute = require("./routes/savedMeals");
+app.use("/saved-meals", savedMealsRoute);
 
+const loggedMealsRoute = require("./routes/loggedMeals");
+app.use("/logged-meals", loggedMealsRoute);
+
+const recipeRoute = require ("./routes/recipe")
+app.use ("/recipes", recipeRoute)
 
 app.listen(8080, function () {
-    console.log("here is the server on port " + PORT);
-  });
+  console.log("here is the server on port " + PORT);
+});
