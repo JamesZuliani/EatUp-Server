@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const knex = require("knex");
 
@@ -22,22 +22,26 @@ module.exports.login = async (req, res) => {
 
   const token = jwt.sign({ sub: user.id }, secretKey, { expiresIn: "48h" });
 
+  localStorage.setItem('token', token)
+
   res.json({ token });
 };
 
 module.exports.signup = async (req, res) => {
-    const {username, password, userId} = req.body;
+  const { username, password } = req.body;
 
-    const existing = await db ('user').where ({username}).first();
-    if (existing) {
-        return res.status(409).json ({error: "user already exists"});
-    } 
+  const existing = await db("user").where({ username }).first();
+  if (existing) {
+    return res.status(409).json({ error: "user already exists" });
+  }
 
-    const hashed = await bcrypt.hash(password, 10);
+  const hashed = await bcrypt.hash(password, 10);
 
-    await db('user').insert({id: userId, username, password: hashed});
+  [userId] = await db("user").insert({ username, password: hashed });
 
-    const token = jwt.sign({sub: userId}, secretKey, { expiresIn: "48h"})
+  const token = jwt.sign({ sub: userId }, secretKey, { expiresIn: "48h" });
 
-    res.json({token})
-}
+  
+
+  res.json({ token });
+};

@@ -6,15 +6,13 @@
 const userData = [
   {
     id: 1,
-    name: "Joe",
+    username: "jamesz",
+    password: "$2b$10$4FgEUsel1PhurQL2M/j0BeAUcI6l7I97EOfCEDE6H9nmxVq3xtV06"
   },
   {
     id: 2,
-    name: "Jill",
-  },
-  {
-    id: 3,
-    name: "James",
+    username: "jill",
+    password: "$2b$10$4FgEUsel1PhurQL2M/j0BeAUcI6l7I97EOfCEDE6H9nmxVq3xtV06"
   },
 ];
 
@@ -40,7 +38,7 @@ const savedData = [
     title: "classic breakfast",
     ingredient_1:"2 fried eggs",
     ingredient_2: "1 oz cooked bacon",
-    user_id: 3,
+    user_id: 1,
   },
 ];
 
