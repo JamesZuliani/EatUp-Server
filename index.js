@@ -18,6 +18,9 @@ app.use("/logged-meals", loggedMealsRoute);
 const recipeRoute = require ("./routes/recipe")
 app.use ("/recipes", recipeRoute)
 
+const authRoute = require ("./routes/auth")
+app.use("/auth", authRoute)
+
 app.listen(8080, function () {
   console.log("here is the server on port " + PORT);
 });

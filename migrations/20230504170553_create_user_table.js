@@ -7,6 +7,8 @@ exports.up = function (knex) {
     .createTable("user", function (table) {
       table.increments("id");
       table.string("name").notNullable();
+      table.string("username").notNullable();
+      table.string("password").notNullable();
     })
     .createTable("saved-meals", function (table) {
       table.increments("id");
