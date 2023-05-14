@@ -23,5 +23,8 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.22",
     "uuid": "^9.0.0"
+  },
+  "resolutions": {
+    "sqlite3": "npm:fake-sqlite3@npm:sqlite3@5.0.0"
   }
 }

@@ -10,7 +10,7 @@ exports.up = function (knex) {
       table.string("password").notNullable();
     })
     .createTable("saved-meals", function (table) {
-      table.increments("id");
+      table.string("id").notNullable();
       table.integer("user_id").unsigned().notNullable();
       table.string("title").notNullable();
       table.string("ingredient_1").notNullable();
