@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const savedMealsController = require ("../controllers/savedMealsController")
 
-router.get ("/:userId", savedMealsController.getAll)
+router.post ("/", savedMealsController.getAll)
 
-router.post ("/", savedMealsController.post)
+router.post("/ingredient", savedMealsController.getIngredient)
+
+router.put ("/", savedMealsController.putMeal)
 
 router.delete ("/:mealId", savedMealsController.delete)
 
