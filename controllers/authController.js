@@ -22,9 +22,8 @@ module.exports.login = async (req, res) => {
 
   const token = jwt.sign({ sub: user.id }, secretKey, { expiresIn: "48h" });
 
-  localStorage.setItem('token', token)
 
-  res.json({ token });
+  return res.json({ userId: user.id, token });
 };
 
 module.exports.signup = async (req, res) => {
@@ -41,7 +40,6 @@ module.exports.signup = async (req, res) => {
 
   const token = jwt.sign({ sub: userId }, secretKey, { expiresIn: "48h" });
 
-  
 
-  res.json({ token });
+  return res.json({ userId: userId, token });
 };
