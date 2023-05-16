@@ -20,12 +20,15 @@ Please ensure you have Node.js and npm installed to run this application. Follow
     
 ## Server-side folder & setup
   2. Install the required dependencies in the server folder <br>
-  `$ npm install`
+  `npm install`
   
   3. Set up environment variables:
     The included .env.sample file can be renamed to .env, then remove the < > characters and provide your local database information.
     
-  4. Run the server <br>
+  4. Initialize the database tables: <br>
+    `knex migrate:latest`
+    
+  5. Run the server <br>
     `npm run nodemon`
     
 ## Client-side folder & setup
@@ -33,5 +36,4 @@ Please ensure you have Node.js and npm installed to run this application. Follow
   `npm install`
   
   6. Start the React application <br>
-  `$ npm start`
-  
+  `npm start`
