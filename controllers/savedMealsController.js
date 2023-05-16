@@ -88,21 +88,22 @@ module.exports.putMeal = (req, res) => {
       return res.status(201).json({ meal });
     })
     .catch((err) => {
-      console.log("fail", err);
+      console.log("fail");
       return res.status(500).json({ error: "Failed to create saved meal" });
     });
 };
 
 module.exports.delete = (req, res) => {
   const { mealId } = req.params;
+  console.log("deleting meal with ID: ", mealId)
   return db("saved-meals")
     .del()
     .where({ id: mealId })
     .then(() => {
-      return res.status(204);
+      return res.status(204).json("all good")
     })
     .catch((err) => {
-      console.log(err);
+      console.log("error deleting meal", err);
       return res.status(500).json({ error: "Failed to delete saved meal." });
     });
 };
