@@ -21,6 +21,6 @@ app.use("/recipes", recipeRoute);
 const authRoute = require("./routes/auth");
 app.use("/auth", authRoute);
 
-app.listen(8080, function () {
+app.listen(PORT, function () {
   console.log("here is the server on port " + PORT);
 });

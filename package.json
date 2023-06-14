@@ -4,7 +4,8 @@
   "description": "CapStone project ~EatUp!~ backend",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch index.js",
+    "dev": "node --watch index.js",
+    "start": "node index.js",
     "nodemon": "nodemon index.js",
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
